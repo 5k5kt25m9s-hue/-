@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Маленький секрет ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: radial-gradient(circle, #54212f, #190b15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Georgia, serif;
+    color: white;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    color: #ffdce6;
+}
+
+.subtitle {
+    color: #d9aebc;
+    margin-bottom: 55px;
+    font-size: 16px;
+}
+
+.gift {
+    position: relative;
+    width: 180px;
+    height: 150px;
+    margin: auto;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.box {
+    position: absolute;
+    width: 180px;
+    height: 115px;
+    background: #d93661;
+    bottom: 0;
+    border-radius: 5px;
+    box-shadow: 0 15px 35px #0006;
+}
+
+.box::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 25px;
+    background: #ffd27d;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.lid {
+    position: absolute;
+    width: 200px;
+    height: 35px;
+    background: #f05279;
+    left: -10px;
+    top: 0;
+    border-radius: 5px;
+    transition: 0.8s;
+    z-index: 3;
+}
+
+.lid::before {
+    content: "";
+    position: absolute;
+    height: 35px;
+    width: 25px;
+    background: #ffd27d;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bow {
+    position: absolute;
+    width: 65px;
+    height: 35px;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+}
+
+.bow::before,
+.bow::after {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 25px;
+    border: 7px solid #ffd27d;
+    border-radius: 50% 50% 0 50%;
+}
+
+.bow::after {
+    right: 0;
+    transform: scaleX(-1);
+}
+
+.gift:hover {
+    transform: scale(1.07);
+}
+
+.gift.open .lid {
+    transform: translateY(-90px) rotate(-15deg);
+}
+
+.gift.open {
+    transform: scale(0.9);
+}
+
+.hint {
+    margin-top: 45px;
+    color: #f7c5d3;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    50% { opacity: 0.4; }
+}
+
+.letter {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #160b13ee;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 10;
+}
+
+.letter-content {
+    background: linear-gradient(145deg, #fff0f3, #f5cbd5);
+    color: #69273c;
+    padding: 35px 25px;
+    max-width: 390px;
+    width: 100%;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 50px #ff729955;
+    animation: appear 0.8s;
+}
+
+.letter-content h2 {
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+
+.letter-content p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.heart {
+    font-size: 40px;
+    margin-top: 20px;
+}
+
+.close {
+    margin-top: 25px;
+    padding: 12px 30px;
+    border: none;
+    background: #b72f59;
+    color: white;
+    border-radius: 25px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+@keyframes appear {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.floating {
+    position: fixed;
+    bottom: -30px;
+    color: #ff9ab5;
+    animation: float 7s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>❤️ Насиба ботам ❤️</h1>
+    <p class="subtitle"> Менің саған деген сыйлығым бар...</p>
+
+    <div class="gift" id="gift" onclick="openGift()">
+        <div class="lid">
+            <div class="bow"></div>
+        </div>
+        <div class="box"></div>
+    </div>
+
+    <p class="hint">Сыйлыққа баса ғой 🎁</p>
+</div>
+
+<div class="letter" id="letter">
+    <div class="letter-content">
+        <h2>Сен үшін ❤️</h2>
+
+        <p>
+        
+        <br><br>
+
+        Болашағымыз бізге не дайындап тұрғанын білмеймін,
+        бірақ бір нәрсені анық білемін — сенің өмірімде
+        пайда болғаныңа шын жүректен қуаныштымын
+
+        <br><br>
+
+        Егер маған қайтадан таңдау жасауға тура келсе,
+        мен тағы да сені таңдар едім
+        </p>
+
+        <div class="heart">❤️</div>
+
+        <button class="close" onclick="closeGift()">
+            Мен сені сүйемін❤️
+        </button>
+    </div>
+</div>
+
+<script>
+function openGift() {
+    const gift = document.getElementById("gift");
+
+    gift.classList.add("open");
+
+    setTimeout(() => {
+        document.getElementById("letter").style.display = "flex";
+    }, 700);
+
+    hearts();
+}
+
+function closeGift() {
+    document.getElementById("letter").style.display = "none";
+}
+
+function hearts() {
+    for (let i = 0; i < 25; i++) {
+        setTimeout(() => {
+            const heart = document.createElement("div");
+            heart.className = "floating";
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.fontSize = (15 + Math.random() * 25) + "px";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 7000);
+        }, i * 120);
+    }
+}
+</script>
+
+</body>
+</html>
